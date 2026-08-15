@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import { getCollection } from 'astro:content';
+import { base } from '../lib/base';
 
 const batches = await getCollection('batches');
 const sortedBatches = batches.sort((a, b) => b.data.batchNumber - a.data.batchNumber);
@@ -48,13 +49,13 @@ const statusColors = {
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/showcases" class="btn-primary">
+            <a href={`${base}showcases`} class="btn-primary">
               Lihat Showcases
               <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <a href="/mentors" class="btn-secondary">
+            <a href={`${base}mentors`} class="btn-secondary">
               Kenali Mentors
             </a>
           </div>
@@ -125,7 +126,7 @@ const statusColors = {
               <p class="text-sm font-mono text-indigo-600 font-medium mb-2">CURRENT BATCH</p>
               <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Latest Batch</h2>
             </div>
-            <a href="/batches" class="text-indigo-600 font-medium hover:text-indigo-700 flex items-center">
+            <a href={`${base}batches`} class="text-indigo-600 font-medium hover:text-indigo-700 flex items-center">
               Lihat Semua Batch
               <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -186,7 +187,7 @@ const statusColors = {
                 )}
                 
                 <div class="ml-auto">
-                  <a href={`/batches/${latestBatch.id}`} class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700">
+                  <a href={`${base}batches/${latestBatch.id}`} class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700">
                     Lihat Detail
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
