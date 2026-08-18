@@ -19,10 +19,9 @@ export default defineConfig({
   },
 
   // Konfigurasi untuk GitHub Pages
-  // Repo ini adalah project site (ccit-venture/ccit-venture-web),
-  // jadi semua link & asset harus diberi prefix /ccit-venture-web/
+  // Repo ini adalah user/organization site (ccit-venture.github.io),
+  // jadi base dibiarkan '/' (akar domain) tanpa subpath.
   site: 'https://ccit-venture.github.io',
-  base: '/ccit-venture-web',
   output: 'static',
   build: {
     assets: 'assets'
