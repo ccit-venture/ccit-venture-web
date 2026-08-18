@@ -110,16 +110,16 @@ Repository ini sudah dikonfigurasi untuk auto-deployment ke GitHub Pages.
 2. **Enable GitHub Pages**:
     - Buka repository di GitHub
     - Pergi ke **Settings** > **Pages**
-    - Di bagian "Build and deployment", pilih **Source**: `Deploy from a branch`
-    - Pilih branch `master` dan folder `/ (root)`, lalu klik **Save**
+    - Di bagian "Build and deployment", pilih **Source**: `GitHub Actions`
 
 3. **Verifikasi Deployment**:
-    - Buka https://ccit-venture.github.io
-    - Website akan live setelah proses build selesai
+    - Buka tab **Actions** di repository
+    - Pastikan workflow "Deploy to GitHub Pages" berjalan sukses
+    - Website akan live di https://ccit-venture.github.io
 
 ### Auto-Deployment
 
-Setiap kali Anda push ke branch `master`, GitHub Pages akan otomatis:
+Setiap kali Anda push ke branch `master`, workflow GitHub Actions akan otomatis:
 1. Build dengan Astro
 2. Deploy ke GitHub Pages
 
@@ -143,10 +143,10 @@ npm run dev
 ### Troubleshooting
 
 Jika deployment gagal:
-1. Pastikan nama repository sudah persis `ccit-venture.github.io`
-2. Cek **Settings** > **Pages** > Source sudah `Deploy from a branch` (branch `master`, folder `/ (root)`)
+1. Cek tab **Actions** di GitHub untuk error log
+2. Pastikan **Settings** > **Pages** > Source sudah `GitHub Actions`
 3. Pastikan `astro.config.mjs` sudah benar (`site` = `https://ccit-venture.github.io`, tanpa `base`)
-4. Cek log build Pages untuk error detail
+4. Pastikan file `.github/workflows/deploy.yml` ada
 
 ## Menambah Data
 
