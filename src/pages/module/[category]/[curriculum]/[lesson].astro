@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../../../layouts/Layout.astro';
 import Navbar from '../../../../components/Navbar.astro';
+import { base } from '../../../../lib/base';
 
 export async function getStaticPaths() {
   const modules = await getCollection('modules');
@@ -77,6 +78,11 @@ const categoryInfo = {
     name: 'Venture Studio',
     color: 'violet',
     gradient: 'from-violet-500 to-fuchsia-500'
+  },
+  'ai-assisted-development': {
+    name: 'AI Assisted Development',
+    color: 'amber',
+    gradient: 'from-amber-500 to-orange-500'
   }
 };
 
@@ -180,7 +186,7 @@ const backLabel = `Back to ${curriculumInfo?.data.title || curriculum}`;
                 
                 return (
                   <a
-                    href={`/module/${category}/${curriculum}/${lessonId}`}
+                    href={`${base}module/${category}/${curriculum}/${lessonId}`}
                     class:list={[
                       'flex items-center gap-3 p-3 rounded-lg text-sm transition-colors',
                       isActive 
@@ -277,7 +283,7 @@ const backLabel = `Back to ${curriculumInfo?.data.title || curriculum}`;
           <div class="flex items-center justify-between">
             {prevLesson ? (
               <a
-                href={`/module/${category}/${curriculum}/${prevLesson.id.split('/').pop()}`}
+                href={`${base}module/${category}/${curriculum}/${prevLesson.id.split('/').pop()}`}
                 class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -291,7 +297,7 @@ const backLabel = `Back to ${curriculumInfo?.data.title || curriculum}`;
 
             {nextLesson ? (
               <a
-                href={`/module/${category}/${curriculum}/${nextLesson.id.split('/').pop()}`}
+                href={`${base}module/${category}/${curriculum}/${nextLesson.id.split('/').pop()}`}
                 class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 Next Lesson
@@ -332,3 +338,242 @@ const backLabel = `Back to ${curriculumInfo?.data.title || curriculum}`;
     overflow: hidden;
   }
 </style>
+
+<style is:global>
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  .lightbox.open {
+    display: flex;
+  }
+  .lightbox-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+  }
+  .lightbox-stage.dragging {
+    cursor: grabbing;
+  }
+  .lightbox-stage img {
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+    user-select: none;
+    -webkit-user-drag: none;
+    will-change: transform;
+  }
+  .lightbox-btn {
+    position: fixed;
+    z-index: 10000;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+  }
+  .lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  .lightbox-close {
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+  }
+  .lightbox-zoom-in {
+    bottom: 24px;
+    right: 92px;
+  }
+  .lightbox-zoom-out {
+    bottom: 24px;
+    right: 40px;
+  }
+  .lightbox-reset {
+    bottom: 24px;
+    right: 144px;
+    font-size: 20px;
+  }
+  .lightbox-hint {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 6px 14px;
+    border-radius: 999px;
+    pointer-events: none;
+  }
+  body.lightbox-open {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  function initLightbox() {
+    const images = Array.from(document.querySelectorAll('article.prose img'));
+    if (!images.length) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-label', 'Preview gambar');
+    overlay.innerHTML = `
+      <button class="lightbox-btn lightbox-close" type="button" aria-label="Tutup">&times;</button>
+      <button class="lightbox-btn lightbox-zoom-in" type="button" aria-label="Perbesar">+</button>
+      <button class="lightbox-btn lightbox-zoom-out" type="button" aria-label="Perkecil">&minus;</button>
+      <button class="lightbox-btn lightbox-reset" type="button" aria-label="Reset">&olarr;</button>
+      <div class="lightbox-stage"><img alt="" draggable="false" /></div>
+      <div class="lightbox-hint">Scroll untuk zoom &middot; Tarik untuk geser</div>
+    `;
+    document.body.appendChild(overlay);
+
+    const stage = overlay.querySelector('.lightbox-stage');
+    const img = overlay.querySelector('img');
+    const hint = overlay.querySelector('.lightbox-hint');
+
+    let scale = 1;
+    let tx = 0;
+    let ty = 0;
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startTx = 0;
+    let startTy = 0;
+
+    function applyTransform() {
+      img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    }
+
+    function clampPan() {
+      const maxX = Math.max(0, (img.naturalWidth * scale - stage.clientWidth) / 2);
+      const maxY = Math.max(0, (img.naturalHeight * scale - stage.clientHeight) / 2);
+      tx = Math.min(maxX, Math.max(-maxX, tx));
+      ty = Math.min(maxY, Math.max(-maxY, ty));
+    }
+
+    function setScale(next, cx, cy) {
+      const clamped = Math.min(8, Math.max(1, next));
+      if (clamped === scale) return;
+      const stageRect = stage.getBoundingClientRect();
+      const px = cx === undefined ? stageRect.width / 2 : cx - stageRect.left;
+      const py = cy === undefined ? stageRect.height / 2 : cy - stageRect.top;
+      const ratio = clamped / scale;
+      tx = px - (px - tx) * ratio;
+      ty = py - (py - ty) * ratio;
+      scale = clamped;
+      clampPan();
+      applyTransform();
+      hint.style.display = scale > 1 ? 'block' : 'none';
+    }
+
+    function open(src, alt) {
+      img.src = src;
+      img.alt = alt || '';
+      scale = 1;
+      tx = 0;
+      ty = 0;
+      applyTransform();
+      hint.style.display = 'none';
+      overlay.classList.add('open');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function close() {
+      overlay.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+    }
+
+    images.forEach((image) => {
+      image.style.cursor = 'zoom-in';
+      image.draggable = false;
+      image.addEventListener('click', () => {
+        open(image.currentSrc || image.src, image.alt);
+      });
+    });
+
+    overlay.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const factor = Math.exp(-e.deltaY * 0.0015);
+      setScale(scale * factor, e.clientX, e.clientY);
+    }, { passive: false });
+
+    stage.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startTx = tx;
+      startTy = ty;
+      stage.classList.add('dragging');
+      stage.setPointerCapture(e.pointerId);
+    });
+
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      tx = startTx + (e.clientX - startX);
+      ty = startTy + (e.clientY - startY);
+      applyTransform();
+    });
+
+    stage.addEventListener('pointerup', (e) => {
+      dragging = false;
+      stage.classList.remove('dragging');
+      stage.releasePointerCapture(e.pointerId);
+      clampPan();
+      applyTransform();
+    });
+
+    overlay.querySelector('.lightbox-zoom-in').addEventListener('click', (e) => {
+      e.stopPropagation();
+      setScale(scale * 1.5);
+    });
+    overlay.querySelector('.lightbox-zoom-out').addEventListener('click', (e) => {
+      e.stopPropagation();
+      setScale(scale / 1.5);
+    });
+    overlay.querySelector('.lightbox-reset').addEventListener('click', (e) => {
+      e.stopPropagation();
+      setScale(1);
+    });
+    overlay.querySelector('.lightbox-close').addEventListener('click', (e) => {
+      e.stopPropagation();
+      close();
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay || e.target === stage) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+    });
+  }
+
+  initLightbox();
+</script>

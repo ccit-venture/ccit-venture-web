@@ -1,0 +1,109 @@
+---
+title: 'Sesi 3: Pengenalan 9Router: Rolling Token Gratisan'
+description: 'Gabungkan banyak provider AI gratis (seperti Gemini) ke satu endpoint lokal lewat 9Router, lalu pakai dari OpenCode dan Visual Studio Code.'
+category: 'AI Assisted Development'
+difficulty: 'Beginner'
+pubDate: 2026-08-15
+author: 'CCIT Venture Studio'
+tags: ['9router', 'opencode', 'ai', 'provider', 'builder']
+type: 'lesson'
+order: 3
+estimatedTime: '60-90 menit'
+prerequisites: ['Sesi 2: Menggunakan Google Gemini sebagai Agent AI (disarankan, karena 9Router memakai provider Gemini).', 'Node.js & npm terinstal.']
+---
+
+# Pengenalan 9Router: Rolling Token Gratisan
+
+## Apa itu 9Router?
+
+**9Router** adalah *router* lokal yang menyatukan banyak penyedia (provider) AI gratis ke **satu alamat endpoint dan satu API Key**. Jadi kamu tidak perlu memasang satu-satu key untuk tiap provider. Kalau satu provider kena batas (limit/rate limit), 9Router bisa otomatis pindah ke provider lain yang masih jalan. Dashboard-nya dibuka lewat browser di komputer kamu, dan di situlah kamu memilih provider (misalnya Gemini) yang dipakai oleh alat-alat lain seperti OpenCode.
+
+## Yang Kamu Butuhkan
+
+- [9Router](https://9router.com)
+- [OpenCode](https://opencode.ai)
+- [Node.js](https://nodejs.org) & npm (untuk menjalankan perintah instalasi)
+
+## Langkah 1
+
+Buka terminal atau command prompt kamu. Install 9router secara global dengan menjalankan perintah berikut:
+
+```bash
+npm install -g 9router
+```
+
+![GAMBAR](assets-9router-with-opencode/install-9router.png)
+
+Setelah instalasi selesai, buka dashboard melalui browser di alamat `localhost:20218`.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20150559.png)
+
+Login menggunakan default password.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20151048.png)
+
+## Langkah 2
+
+Buka halaman Endpoint & Key. Copy API Endpoint local dan API Keys.
+
+![GAMBAR](assets-9router-with-opencode/image.png)
+
+Setelah itu buka halaman Providers. Scroll hingga ke bagian Free tier Providers. Pilih Gemini. Sambungkan dengan API dari Provider dan pilih Model yang ingin digunakan.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20151905.png)
+
+![GAMBAR](assets-9router-with-opencode/Screenshot_2026-08-08_230332.png)
+
+![GAMBAR](assets-9router-with-opencode/Screenshot_2026-08-08_230357.png)
+
+Apabila ada yang error cukup tekan silang.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot_2026-08-08_230425.png)
+
+Masuk ke CLI Tools. Masukkan local Endpoint serta API Key. Lalu pilih model yang ingin digunakan, contohnya Gemma 4 31B IT. Pencet Apply.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20153303.png)
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20153252.png)
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20153312.png)
+
+## Langkah 3
+
+Install OpenCode dengan menjalankan perintah:
+
+```bash
+npm i -g opencode-ai
+```
+
+![GAMBAR](assets-9router-with-opencode/install-opencode.png)
+
+Setelah instalasi selesai, ketik opencode pada CLI untuk membuka UI OpenCode.
+
+Karena konfigurasi provider (endpoint dan API Key) sudah di-setup otomatis oleh 9Router di Langkah 2 lewat menu CLI Tools, kamu **tidak perlu Connect Provider lagi** di OpenCode. Langsung lanjut ke Langkah 4.
+
+## Langkah 4
+
+Berikan perintah pada OpenCode untuk membuat sebuah tampilan aplikasi. Setelah selesai, masuk ke dalam file yang berisi kode yang sudah dibuat oleh OpenCode. Jalankan kode tersebut untuk melihat hasilnya.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot_2026-08-08_223329.png)
+
+![GAMBAR](assets-9router-with-opencode/Screenshot_2026-08-08_223035.png)
+
+## Jika Mau Menggunakan OpenCode via Visual Studio Code
+
+Buka tab Extension dan cari OpenCode. Tekan install dan tunggu hingga proses instalasi selesai.
+
+Setelah selesai, tekan Ctrl + J untuk membuka OpenCode. Masukkan perintah yang kamu inginkan lalu enter. OpenCode akan menjalankan perintah tersebut.
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20153923.png)
+
+![GAMBAR](assets-9router-with-opencode/Screenshot%202026-08-07%20155407.png)
+
+## Error Yang Mungkin Muncul
+
+- Error gagal instalasi OpenCode dan 9Router akibat belum memiliki Node.js
+
+- Proses pembuatan aplikasi dengan AI Assistant terganggu akibat sinyal tidak stabil
+
+Lanjut ke [Sesi 4: Mencoba Agent LLM Freebuff](04-freebuff).

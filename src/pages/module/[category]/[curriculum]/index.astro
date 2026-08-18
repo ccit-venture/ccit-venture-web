@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../../../layouts/Layout.astro';
 import Navbar from '../../../../components/Navbar.astro';
+import { base } from '../../../../lib/base';
 
 export async function getStaticPaths() {
   const modules = await getCollection('modules');
@@ -65,6 +66,11 @@ const categoryInfo: Record<string, { name: string; color: string; gradient: stri
     name: 'Venture Studio',
     color: 'violet',
     gradient: 'from-violet-500 to-fuchsia-500'
+  },
+  'ai-assisted-development': {
+    name: 'AI Assisted Development',
+    color: 'amber',
+    gradient: 'from-amber-500 to-orange-500'
   }
 };
 
@@ -100,7 +106,7 @@ const { Content } = curriculumIndex ? await render(curriculumIndex) : { Content:
     <section class:list={['py-12 lg:py-16', 'bg-gradient-to-br', info.gradient]}>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-6">
-          <a href={`/module/${category}`} class="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+          <a href={`${base}module/${category}`} class="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -187,7 +193,7 @@ const { Content } = curriculumIndex ? await render(curriculumIndex) : { Content:
                   const lessonId = idParts[idParts.length - 1];
                   return (
                     <a
-                      href={`/module/${category}/${curriculum}/${lessonId}`}
+                      href={`${base}module/${category}/${curriculum}/${lessonId}`}
                       class="group flex items-start gap-4 p-6 hover:bg-slate-50 transition-colors"
                     >
                       <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white flex items-center justify-center font-bold text-sm">
@@ -285,7 +291,7 @@ const { Content } = curriculumIndex ? await render(curriculumIndex) : { Content:
               </p>
               
               <a
-                href={`/module/${category}/${curriculum}/${lessons[0].id.split('/').pop()}`}
+                href={`${base}module/${category}/${curriculum}/${lessons[0].id.split('/').pop()}`}
                 class="inline-flex items-center justify-center w-full px-4 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-slate-50 transition-colors"
               >
                 Start First Lesson
