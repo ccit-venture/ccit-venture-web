@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+const TALLY_URL =
+  'https://opnform.com/forms/venture-studio-student-product-team-intake-u0rjbz';
+---
+
+<Layout
+  title="Daftar Batch 2 · CCIT Venture Studio"
+  description="Pendaftaran Batch 2 (#Arunika) CCIT Venture Studio untuk mahasiswa CCIT angkatan 2025 & 2026. Tanpa seleksi, modal konsisten."
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-indigo-50 to-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-mono font-medium mb-8">
+          <span class="w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse"></span>
+          Batch 2: #Arunika · Pendaftaran Dibuka
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+          Daftar <span class="text-indigo-600">Batch 2</span>
+        </h1>
+        <p class="text-lg text-slate-500 italic max-w-3xl mx-auto mb-6">
+          "Ketika Manggala telah dibuka, cahaya pertama menyapa di ufuk. Arunika: fajar yang menghangatkan, pertanda surya akan hadir."
+        </p>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">
+          CCIT Venture Studio adalah program inkubasi 6 bulan untuk membangun produk digital nyata, dari ide sampai live, bersama mentor praktisi industri. Batch 2 terbuka untuk mahasiswa CCIT angkatan 2025 & 2026.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Daftar Sekarang
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="/program" class="btn-secondary">
+            Lihat Program
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info singkat -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Siapa yang bisa ikut</h3>
+            <p class="text-slate-600">
+              Mahasiswa aktif CCIT, angkatan 2025 &amp; 2026. Angkatan 2025 (semester 3) diutamakan. Tanpa proses seleksi dan tanpa syarat jago coding.
+            </p>
+          </div>
+          <div class="card p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Kapan &amp; durasi</h3>
+            <p class="text-slate-600">
+              Mulai minggu pertama perkuliahan dimulai untuk angkatan 2025 (semester 3) yang diutamakan. Pendaftaran terbuka hingga Minggu Pertama Oktober 2026. Program berjalan 6 bulan penuh.
+            </p>
+          </div>
+          <div class="card p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Lokasi</h3>
+            <p class="text-slate-600">
+              Engineering Center FTUI, CCIT, Universitas Indonesia, Depok, Jawa Barat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guidebook -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Guidebook Batch 2</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-8">
+          Baca panduan lengkap program, termasuk alur, siklus, komitmen, dan ekspektasi, sebelum mendaftar.
+        </p>
+        <iframe
+          src="/guidebook-batch-2.pdf"
+          class="w-full h-[80vh] rounded-lg border border-slate-200 shadow-sm bg-slate-100"
+          title="Guidebook Batch 2"
+        ></iframe>
+        <p class="text-center mt-4">
+          <a
+            href="/guidebook-batch-2.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"
+          >
+            Buka di tab baru
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Siklus mingguan -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Siklus Kerja Mingguan</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+          Kamu gak duduk diam mendengarkan teori; setiap minggu menjalankan siklus yang sama dipakai startup sungguhan.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">01</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Ide</h3>
+            <p class="text-slate-600 text-sm">Mulai dari masalah nyata, bukan dari "pengen bikin aplikasi".</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">02</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Pilih 1 fitur utama</h3>
+            <p class="text-slate-600 text-sm">Satu fitur, satu masalah, satu pengguna target. Pangkas sisanya.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">03</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Bangun versi kecil</h3>
+            <p class="text-slate-600 text-sm">MVP dalam 1 hari, HTML statis cukup, backend boleh nanti.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">04</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Tes ke 5 orang nyata</h3>
+            <p class="text-slate-600 text-sm">Bukan teman yang sayang kamu; pengguna sungguhan yang tidak kenal kamu.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">05</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Kumpulkan feedback langsung</h3>
+            <p class="text-slate-600 text-sm">Amati perilaku, bukan dengar pujian. Feedback negatif itu informasi termurah.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">06</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Iterate &amp; ulangi</h3>
+            <p class="text-slate-600 text-sm">Perbaiki, tes lagi, ulangi, sampai produknya layak launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Komitmen -->
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Yang Kami Minta dari Kamu</h2>
+        <p class="text-slate-600 text-center mb-12">Program ini sepadan dengan seberapa serius kamu.</p>
+        <div class="space-y-4">
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">1</div>
+            <p class="text-slate-700"><strong>5 jam per minggu</strong>, konsisten lebih penting daripada borongan.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">2</div>
+            <p class="text-slate-700">Hadir di <strong>weekly session</strong>, sinkronisasi seminggu sekali.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">3</div>
+            <p class="text-slate-700">Jalankan <strong>feedback loop</strong> ke minimal 5 orang per minggu.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">4</div>
+            <p class="text-slate-700"><strong>Keluar dari zona nyaman</strong>; itu tempat belajar yang sebenarnya.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">5</div>
+            <p class="text-slate-700"><strong>Komitmen 6 bulan</strong>; produk yang lahir di akhir layak untuk dibanggakan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Pertanyaan yang Sering Ditanyakan</h2>
+        <div class="space-y-4">
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Harus punya ide dulu?</h3>
+            <p class="text-slate-600">Tidak. Kalau belum ada ide, bisa konsultasi langsung dengan Pak Hudya di sesi awal.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Bisa sambil kuliah?</h3>
+            <p class="text-slate-600">Bisa, justru dirancang begitu. Sinkronisasi lewat weekly session, seminggu sekali.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Ada proses seleksi?</h3>
+            <p class="text-slate-600">Tidak ada. Yang kami minta cuma modal konsisten.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Kapan pendaftaran ditutup?</h3>
+            <p class="text-slate-600">Minggu Pertama Oktober 2026 untuk pendaftaran umum. Angkatan 2025 (semester 3) yang diutamakan mulai di minggu pertama perkuliahan.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Satu tim berapa orang?</h3>
+            <p class="text-slate-600">Minimal 1 (solo founder) sampai maksimal 3 orang. Tim lebih besar bisa untuk kasus tertentu.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Bisa ikut jalur Open Source saja?</h3>
+            <p class="text-slate-600">Tentu. Jalur Open Source Developer dipimpin Pak Hudya sebagai reviewer repository.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Wajib jago coding?</h3>
+            <p class="text-slate-600">Tidak. Program memakai AI assisted development; cukup punya pengetahuan dasar code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA akhir -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Fajar Arunika Menunggumu</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto mb-10">
+          Batch 1 (Manggala) membuka jalan dengan 19 tim produk live. Sekarang giliranmu menjadi cahaya pertama, daftar sebelum Minggu Pertama Oktober 2026.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Daftar Sekarang
+          </a>
+          <a href="/batches" class="btn-secondary">
+            Lihat Batch 1
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-slate-500">
+      © 2026 CCIT Venture Studio · Universitas Indonesia
+    </div>
+  </footer>
+</Layout>
