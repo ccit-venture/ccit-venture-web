@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { base } from '../lib/base';
+
+const projects = [
+  {
+    name: 'PhotoBox',
+    desc: 'Aplikasi desktop berbasis Electron untuk pengolahan foto.',
+    plan: 'Dibuat general supaya bisa dipakai tanpa backend service.',
+    tags: ['Desktop', 'Electron'],
+  },
+  {
+    name: 'Lost & Found',
+    desc: 'Aplikasi web untuk laporan barang hilang dan ditemukan.',
+    plan: 'Perbaikan flow dan akses, termasuk fitur Extract Location.',
+    tags: ['Web'],
+  },
+  {
+    name: 'Sat Set Tap',
+    desc: 'Sistem IoT dan web untuk akses masuk konser menggunakan LoRa dan KTP.',
+    plan: 'Integrasi lanjut, perbaikan web dan pengecekan kestabilan.',
+    tags: ['IoT', 'Web'],
+  },
+  {
+    name: 'CampusCash',
+    desc: 'Aplikasi web pencatat keuangan.',
+    plan: 'Diselesaikan sampai beres dengan flow yang simpel.',
+    tags: ['Web'],
+  },
+  {
+    name: 'SalesLedger',
+    desc: 'Aplikasi web pembaca struk untuk laporan ke unit pusat tentang struk penerimaan uang.',
+    plan: 'Lanjutan pengembangan dan penyempurnaan alur laporan.',
+    tags: ['Web'],
+  },
+  {
+    name: 'Online Pub5',
+    desc: 'Aplikasi web untuk membuat PDF seperti majalah.',
+    plan: 'Lanjutan pengembangan generator dokumen.',
+    tags: ['Web'],
+  },
+  {
+    name: 'CoSign',
+    desc: 'Aplikasi web ala blush.design untuk anak CM berbagi portofolio.',
+    plan: 'Lanjutan pengembangan platform portofolio.',
+    tags: ['Web'],
+  },
+];
+---
+
+<Layout
+  title="Open Source Projects · CCIT Venture Studio"
+  description="7 proyek Batch 1 (Manggala) yang dibuka untuk kontribusi open source: PhotoBox, Lost & Found, Sat Set Tap, CampusCash, SalesLedger, Online Pub5, CoSign."
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-indigo-50 to-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+          Jalur <span class="text-indigo-600">Open Source</span>
+        </h1>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">
+          Tidak semua orang ingin jadi founder, dan itu tidak apa. Di jalur ini kamu berkontribusi ke
+          <strong>7 proyek Batch 1 (Manggala)</strong> yang dibuka untuk umum, atau mulai repository barumu sendiri.
+          Semua didampingi dan di-review langsung oleh Pak Hudya sebagai reviewer repository.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={`${base}register`} class="btn-primary">
+            Daftar Batch 2
+          </a>
+          <a href={`${base}program`} class="btn-secondary">
+            Tentang Program
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daftar proyek -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Proyek yang Dibuka</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+          Repository akan dipublish bertahap. Pilih satu yang menarik, pelajari codebase-nya, dan mulai kontribusi.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            projects.map((p) => (
+              <div class="card card-hover p-6 flex flex-col">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-xl font-bold text-slate-900">{p.name}</h3>
+                </div>
+                <p class="text-slate-600 text-sm mb-4">{p.desc}</p>
+                <div class="mt-auto">
+                  <div class="text-xs font-mono text-indigo-600 mb-2">RENCANA</div>
+                  <p class="text-slate-700 text-sm mb-4">{p.plan}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {p.tags.map((t) => <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono font-medium">{t}</span>)}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Cara ikut -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Cara Ikut</h2>
+        <div class="space-y-4">
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">1</div>
+            <p class="text-slate-700">Daftar Batch 2 lewat halaman <a href={`${base}register`} class="text-indigo-600 font-semibold hover:underline">Register</a>, lalu pilih jalur Open Source Developer saat pendaftaran.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">2</div>
+            <p class="text-slate-700">Pilih salah satu proyek di atas, atau usulkan proyek open source baru.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">3</div>
+            <p class="text-slate-700">Berkontribusi lewat pull request, dan direview langsung oleh Pak Hudya sebagai reviewer repository.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-slate-500">
+      © 2026 CCIT Venture Studio · Universitas Indonesia
+    </div>
+  </footer>
+</Layout>
