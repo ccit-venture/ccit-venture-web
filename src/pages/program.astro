@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { base } from '../lib/base';
+---
+
+<Layout
+  title="Program CCIT Venture Studio"
+  description="CCIT Venture Studio: program inkubasi 6 bulan untuk membangun produk digital nyata, dari ide sampai live, bersama mentor praktisi industri."
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-indigo-50 to-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+          Program <span class="text-indigo-600">Venture Studio</span>
+        </h1>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">
+          Inkubasi 6 bulan untuk mahasiswa CCIT: dari ide, dites ke pengguna nyata, sampai jadi produk digital yang live dan bisa dipamerkan. Bukan kelas teori, ini bengkel produk.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={`${base}register`} class="btn-primary">
+            Daftar Batch 2
+          </a>
+          <a href={`${base}batches`} class="btn-secondary">
+            Lihat Batch Sebelumnya
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perjalanan 6 bulan -->
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Perjalanan 6 Bulan</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+          Empat fase, dari sekadar ide sampai produk yang diluncurkan ke publik.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="card p-6">
+            <div class="text-sm font-mono text-indigo-600 mb-2">FASE 1 · ±1 BULAN</div>
+            <h3 class="font-semibold text-slate-900 mb-2">Ideation</h3>
+            <p class="text-slate-600 text-sm">Brainstorming, validasi ide, riset pengguna, dan pembentukan tim.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-sm font-mono text-indigo-600 mb-2">FASE 2 · ±2 BULAN</div>
+            <h3 class="font-semibold text-slate-900 mb-2">Prototyping</h3>
+            <p class="text-slate-600 text-sm">Design sprint, bikin MVP, dan user testing ke pengguna sungguhan.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-sm font-mono text-indigo-600 mb-2">FASE 3 · ±3 BULAN</div>
+            <h3 class="font-semibold text-slate-900 mb-2">Development</h3>
+            <p class="text-slate-600 text-sm">Pengembangan penuh, iterasi berdasarkan feedback, persiapan launch.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-sm font-mono text-indigo-600 mb-2">FASE 4 · ±1 BULAN</div>
+            <h3 class="font-semibold text-slate-900 mb-2">Launch</h3>
+            <p class="text-slate-600 text-sm">Produk live, demo day, dan pendampingan pasca-launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Siklus mingguan -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Siklus Kerja Mingguan</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+          Setiap minggu kamu menjalankan siklus yang sama dipakai startup sungguhan: cepat bikin, cepat tes, cepat belajar.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">01</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Ide</h3>
+            <p class="text-slate-600 text-sm">Mulai dari masalah nyata.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">02</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Pilih 1 fitur utama</h3>
+            <p class="text-slate-600 text-sm">Satu fitur, satu masalah, satu pengguna target.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">03</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Bangun versi kecil</h3>
+            <p class="text-slate-600 text-sm">MVP dalam 1 hari, HTML statis cukup.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">04</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Tes ke 5 orang nyata</h3>
+            <p class="text-slate-600 text-sm">Pengguna sungguhan, bukan teman yang sayang kamu.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">05</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Kumpulkan feedback langsung</h3>
+            <p class="text-slate-600 text-sm">Amati perilaku. Feedback negatif itu informasi termurah.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-2xl font-bold text-indigo-600 mb-2">06</div>
+            <h3 class="font-semibold text-slate-900 mb-1">Iterate &amp; ulangi</h3>
+            <p class="text-slate-600 text-sm">Perbaiki, tes lagi, sampai layak launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prinsip -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Prinsip Inti Program</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">MVP Cepat</h3>
+            <p class="text-slate-600 text-sm">Dari ide ke halaman yang bisa dites: target 1 hari kerja.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">HTML Statis Dulu</h3>
+            <p class="text-slate-600 text-sm">Backend baru perlu kalau ada login, pembayaran, atau data permanen, dan itu jarang di tahap awal.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">One Feature One Problem One User</h3>
+            <p class="text-slate-600 text-sm">Pangkas semua yang bukan inti.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Feedback dari User Nyata</h3>
+            <p class="text-slate-600 text-sm">Pujian itu feedback palsu; yang dicari adalah pengamatan perilaku.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">AI sebagai Helper</h3>
+            <p class="text-slate-600 text-sm">AI assisted development dipakai untuk mempercepat, bukan menggantikan pemahaman.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Iterasi Tanpa Henti</h3>
+            <p class="text-slate-600 text-sm">Produk bagus tidak lahir sekali jadi; ia lahir dari putaran feedback yang berulang.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Jalur Open Source Developer</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+          Tidak semua orang ingin founder, dan itu tidak apa-apa. Ada jalur kedua untuk kontributor open source.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Lanjutkan Proyek Batch 1</h3>
+            <p class="text-slate-600 text-sm">Ambil alih dan kembangkan produk yang sudah diluncurkan Batch 1, sambil belajar dari codebase nyata.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Mulai Proyek Open Source Baru</h3>
+            <p class="text-slate-600 text-sm">Rintis repository sendiri dengan bimbingan langsung Pak Hudya sebagai reviewer.</p>
+          </div>
+        </div>
+        <p class="text-slate-500 text-center text-sm mt-8">
+          Kedua jalur dipimpin dan di-review langsung oleh Muhamad Hudya Ramadhana (Principal Engineer).
+        </p>
+      </div>
+    </section>
+
+    <!-- Yang kamu dapat -->
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Yang Kamu Bawa Pulang</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Produk Live</h3>
+            <p class="text-slate-600 text-sm">Produk digital yang bisa dibuka dan dipakai orang, bukan tugas yang mati di folder.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Portfolio Nyata</h3>
+            <p class="text-slate-600 text-sm">Bukti konkret buat magang dan kerja, padahal mayoritas pelamar tidak punya ini.</p>
+          </div>
+          <div class="card p-6">
+            <h3 class="font-semibold text-slate-900 mb-1">Pengalaman Siklus Penuh</h3>
+            <p class="text-slate-600 text-sm">Ide → riset → MVP → feedback → iterasi → launch. Siklus yang sama dipakai perusahaan produk.</p>
+          </div>
+        </div>
+        <div class="mt-10 text-center">
+          <a href={`${base}register`} class="btn-primary">
+            Daftar Batch 2 Sekarang
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-slate-500">
+      © 2026 CCIT Venture Studio · Universitas Indonesia
+    </div>
+  </footer>
+</Layout>
