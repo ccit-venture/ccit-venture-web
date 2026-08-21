@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { base } from '../lib/base';
+
+const projects = [
+  {
+    name: 'PhotoBox',
+    desc: 'Sistem photobox digital dengan fitur kamera otomatis, filter/frame, dan QR code untuk download foto.',
+    isNew: false,
+    tags: ['Desktop', 'Electron'],
+  },
+  {
+    name: 'Lost & Found',
+    desc: 'Platform terpusat untuk melaporkan dan mencari barang hilang atau ditemukan di area kampus.',
+    isNew: false,
+    tags: ['Web'],
+  },
+  {
+    name: 'Sat Set Tap',
+    desc: 'Sistem IoT dan web untuk akses masuk konser menggunakan LoRa dan KTP.',
+    isNew: false,
+    tags: ['IoT', 'Web'],
+  },
+  {
+    name: 'CampusCash',
+    desc: 'Aplikasi pencatat pengeluaran harian yang dirancang khusus untuk pola pengeluaran mahasiswa.',
+    isNew: false,
+    tags: ['Web'],
+  },
+  {
+    name: 'SalesLedger',
+    desc: 'Sistem digital rekap setoran sales dengan fitur OCR untuk input faktur otomatis dan tracking pembayaran bertahap.',
+    isNew: false,
+    tags: ['Web'],
+  },
+  {
+    name: 'Online Pub5',
+    desc: 'Aplikasi web untuk membuat dokumen seperti majalah dalam format PDF.',
+    isNew: true,
+    tags: ['Web'],
+  },
+  {
+    name: 'CoSign',
+    desc: 'Aplikasi web ala blush.design untuk anak CM berbagi portofolio.',
+    isNew: true,
+    tags: ['Web'],
+  },
+];
+---
+
+<Layout
+  title="Open Source Projects · CCIT Venture Studio"
+  description="Proyek open source CCIT Venture Studio: 5 proyek Batch 1 (Manggala) dan 2 proyek baru untuk kontribusi: PhotoBox, Lost & Found, Sat Set Tap, CampusCash, SalesLedger, Online Pub5, CoSign."
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-indigo-50 to-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+          Jalur <span class="text-indigo-600">Open Source</span>
+        </h1>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">
+          Tidak semua orang ingin jadi founder, dan itu tidak apa-apa. Kalau kamu lebih suka berkontribusi ke kode yang sudah ada, jalur ini cocok buatmu: kerjakan
+          <strong>5 proyek Batch 1 (Manggala)</strong> dan <strong>2 proyek baru</strong> yang dibuka untuk umum, atau mulai repository-mu sendiri.
+          Setiap kontribusi yang kamu kirim akan direview langsung oleh Pak Hudya, jadi kamu dapat umpan balik dari praktisi berpengalaman.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={`${base}register`} class="btn-primary">
+            Daftar Batch 2
+          </a>
+          <a href={`${base}program`} class="btn-secondary">
+            Tentang Program
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daftar proyek -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-4">Proyek yang Dibuka</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">
+          Repository akan dipublish bertahap. Pilih satu yang menarik, pelajari codebase-nya, dan mulai kontribusi.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            projects.map((p) => (
+              <div class="card card-hover p-6 flex flex-col">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <h3 class="text-xl font-bold text-slate-900">{p.name}</h3>
+                    {p.isNew ? (
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 text-xs font-bold font-mono uppercase">NEW</span>
+                    ) : (
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-semibold font-mono">Batch 1</span>
+                    )}
+                  </div>
+                </div>
+                <p class="text-slate-600 text-sm mb-4">{p.desc}</p>
+                <div class="mt-auto flex items-end justify-between gap-3">
+                  <div class="flex flex-wrap gap-2">
+                    {p.tags.map((t) => <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono font-medium">{t}</span>)}
+                  </div>
+                  <a href="#" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs font-mono font-medium hover:bg-slate-700 transition-colors duration-200 shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Cara ikut -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Cara Ikut</h2>
+        <div class="space-y-4">
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">1</div>
+            <p class="text-slate-700">Daftar Batch 2 lewat halaman <a href={`${base}register`} class="text-indigo-600 font-semibold hover:underline">Register</a>, lalu pilih jalur Open Source Developer saat pendaftaran.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">2</div>
+            <p class="text-slate-700">Pilih salah satu proyek di atas, atau usulkan proyek open source baru.</p>
+          </div>
+          <div class="card p-6 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">3</div>
+            <p class="text-slate-700">Berkontribusi lewat pull request, dan direview langsung oleh Pak Hudya sebagai reviewer repository.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-slate-500">
+      © 2026 CCIT Venture Studio · Universitas Indonesia
+    </div>
+  </footer>
+</Layout>
