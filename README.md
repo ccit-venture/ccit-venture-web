@@ -23,6 +23,7 @@ Materi belajar tersedia sebagai learning modules di `/module`:
 
 - **Tech Lab** (`src/content/modules/tech-lab/`) — 6 sesi awal prototipe dengan Stitch (desain UI mockup) + 6 sesi onboarding + 2 tutorial: cara kerja aplikasi, AI sebagai partner belajar, deploy, membaca codebase, produk mini, open house
 - **Venture Studio** (`src/content/modules/venture-studio/`) — MVP cepat, tes feedback tanpa backend, siklus bikin → tes → ubah
+- **AI Assisted Development** (`src/content/modules/ai-assisted-development/`) — jalur developer: tutorial praktis memakai AI agent (OpenCode, 9Router, freebuff, Gemini CLI) untuk membuat file dan aplikasi langsung dari terminal
 
 Konten sumber (markdown lengkap) ada di direktori materi program. Tambah kategori baru cukup: buat folder di `src/content/modules/<slug>/`, daftarkan nama kategori di `src/content.config.ts` dan `categoryInfo` di halaman module.
 
@@ -118,9 +119,11 @@ Repository ini sudah dikonfigurasi untuk auto-deployment ke GitHub Pages.
 
 ### Auto-Deployment
 
-Setiap kali Anda push ke branch `main`, website akan otomatis:
+Setiap kali Anda push ke branch `master`, workflow GitHub Actions akan otomatis:
 1. Build dengan Astro
 2. Deploy ke GitHub Pages
+
+> Catatan: Karena ini user/organization site, nama repository harus persis `ccit-venture.github.io`, dan konfigurasi `astro.config.mjs` tidak memerlukan `base` (URL di akar domain `/`).
 
 ### Development vs Production
 
@@ -141,9 +144,9 @@ npm run dev
 
 Jika deployment gagal:
 1. Cek tab **Actions** di GitHub untuk error log
-2. Pastikan `astro.config.mjs` sudah benar
-3. Pastikan file `.github/workflows/deploy.yml` ada
-4. Verifikasi GitHub Pages sudah di-enable di Settings
+2. Pastikan **Settings** > **Pages** > Source sudah `GitHub Actions`
+3. Pastikan `astro.config.mjs` sudah benar (`site` = `https://ccit-venture.github.io`, tanpa `base`)
+4. Pastikan file `.github/workflows/deploy.yml` ada
 
 ## Menambah Data
 

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import { base } from '../lib/base';
 ---
 
 <Layout
@@ -19,10 +20,10 @@ import Navbar from '../components/Navbar.astro';
           Inkubasi 6 bulan untuk mahasiswa CCIT: dari ide, dites ke pengguna nyata, sampai jadi produk digital yang live dan bisa dipamerkan. Bukan kelas teori, ini bengkel produk.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/register" class="btn-primary">
+          <a href={`${base}register`} class="btn-primary">
             Daftar Batch 2
           </a>
-          <a href="/batches" class="btn-secondary">
+          <a href={`${base}batches`} class="btn-secondary">
             Lihat Batch Sebelumnya
           </a>
         </div>
@@ -178,7 +179,7 @@ import Navbar from '../components/Navbar.astro';
           </div>
         </div>
         <div class="mt-10 text-center">
-          <a href="/register" class="btn-primary">
+          <a href={`${base}register`} class="btn-primary">
             Daftar Batch 2 Sekarang
           </a>
         </div>

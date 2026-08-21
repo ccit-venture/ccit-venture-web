@@ -1,11 +1,13 @@
 ---
+import { base } from '../lib/base';
+
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/showcases', label: 'Showcases' },
-  { href: '/module', label: 'Modules' },
-  { href: '/mentors', label: 'Mentors' },
-  { href: '/batches', label: 'Batches' },
-  { href: '/register', label: 'Register' },
+  { href: base, label: 'Home' },
+  { href: `${base}showcases`, label: 'Showcases' },
+  { href: `${base}module`, label: 'Modules' },
+  { href: `${base}mentors`, label: 'Mentors' },
+  { href: `${base}batches`, label: 'Batches' },
+  { href: `${base}register`, label: 'Register' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -15,7 +17,7 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-2">
+        <a href={base} class="flex items-center space-x-2">
           <span class="text-2xl font-bold text-indigo-600">CCIT</span>
           <span class="text-2xl font-semibold text-slate-900">Venture Studio</span>
         </a>

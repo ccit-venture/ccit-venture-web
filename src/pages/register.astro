@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import { base } from '../lib/base';
 
 const TALLY_URL =
   'https://opnform.com/forms/venture-studio-student-product-team-intake-u0rjbz';
@@ -35,7 +36,7 @@ const TALLY_URL =
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          <a href="/program" class="btn-secondary">
+          <a href={`${base}program`} class="btn-secondary">
             Lihat Program
           </a>
         </div>
@@ -76,13 +77,13 @@ const TALLY_URL =
           Baca panduan lengkap program, termasuk alur, siklus, komitmen, dan ekspektasi, sebelum mendaftar.
         </p>
         <iframe
-          src="/guidebook-batch-2.pdf"
+          src={`${base}guidebook-batch-2.pdf`}
           class="w-full h-[80vh] rounded-lg border border-slate-200 shadow-sm bg-slate-100"
           title="Guidebook Batch 2"
         ></iframe>
         <p class="text-center mt-4">
           <a
-            href="/guidebook-batch-2.pdf"
+            href={`${base}guidebook-batch-2.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"
@@ -216,7 +217,7 @@ const TALLY_URL =
           <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" class="btn-primary">
             Daftar Sekarang
           </a>
-          <a href="/batches" class="btn-secondary">
+          <a href={`${base}batches`} class="btn-secondary">
             Lihat Batch 1
           </a>
         </div>

@@ -18,8 +18,9 @@ export default defineConfig({
     }
   },
 
-  // Konfigurasi untuk GitHub Pages (username.github.io)
-  // Tidak perlu base path karena ini user/organization site
+  // Konfigurasi untuk GitHub Pages
+  // Repo ini adalah user/organization site (ccit-venture.github.io),
+  // jadi base dibiarkan '/' (akar domain) tanpa subpath.
   site: 'https://ccit-venture.github.io',
   output: 'static',
   build: {

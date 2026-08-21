@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import { getCollection } from 'astro:content';
+import { base } from '../../lib/base';
 
 // Get all batches for static paths
 export async function getStaticPaths() {
@@ -49,7 +50,7 @@ const projectStatusColors = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Breadcrumb -->
       <nav class="mb-8">
-        <a href="/batches" class="text-slate-500 hover:text-indigo-600 flex items-center text-sm">
+        <a href={`${base}batches`} class="text-slate-500 hover:text-indigo-600 flex items-center text-sm">
           <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>

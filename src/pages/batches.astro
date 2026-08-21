@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import { getCollection } from 'astro:content';
+import { base } from '../lib/base';
 
 const batches = await getCollection('batches');
 const sortedBatches = batches.sort((a, b) => b.data.batchNumber - a.data.batchNumber);
@@ -50,7 +51,7 @@ const formatDate = (date: Date) => {
       ) : (
         <div class="space-y-6 max-w-4xl mx-auto">
           {sortedBatches.map((batch) => (
-            <a href={`/batches/${batch.id}`} class="card card-hover block overflow-hidden">
+            <a href={`${base}batches/${batch.id}`} class="card card-hover block overflow-hidden">
               <div class="p-6">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                   <div class="flex items-center gap-4">

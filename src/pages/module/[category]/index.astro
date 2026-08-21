@@ -2,9 +2,10 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Navbar from '../../../components/Navbar.astro';
+import { base } from '../../../lib/base';
 
 export async function getStaticPaths() {
-  const categories = ['product-development', 'tech-lab', 'venture-studio'];
+  const categories = ['product-development', 'tech-lab', 'venture-studio', 'ai-assisted-development'];
   return categories.map(cat => ({ params: { category: cat } }));
 }
 
@@ -29,6 +30,13 @@ const categoryInfo: Record<string, { name: string; description: string; icon: st
     icon: '💡',
     color: 'violet',
     gradient: 'from-violet-500 to-fuchsia-500'
+  },
+  'ai-assisted-development': {
+    name: 'AI Assisted Development',
+    description: 'Jalur developer: pakai AI agent (OpenCode, 9Router, freebuff, dan Gemini CLI) sebagai partner ngoding untuk membangun file dan aplikasi lebih cepat, sambil belajar membaca dan mengedit kode hasil AI.',
+    icon: '🤖',
+    color: 'amber',
+    gradient: 'from-amber-500 to-orange-500'
   }
 };
 
@@ -79,7 +87,7 @@ const difficultyColors: Record<string, string> = {
       <div class="absolute inset-0 bg-black/10"></div>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <a href="/module" class="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+        <a href={`${base}module`} class="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
@@ -112,7 +120,7 @@ const difficultyColors: Record<string, string> = {
               
               return (
                 <a
-                  href={`/module/${category}/${curriculumId}`}
+                  href={`${base}module/${category}/${curriculumId}`}
                   class="group relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:border-indigo-400 hover:shadow-2xl transition-all duration-500"
                 >
                   <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500" />
